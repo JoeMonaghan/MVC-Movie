@@ -14,18 +14,23 @@ namespace MvcMovie.Controllers
         public IActionResult Index()
         {
             return View();
+            // Returns a HTML response to the browser
         }
 
-        // 
+        // Every public method in a controller is a HTTP endpoint i.e
+        // providing the url below while run the enpoint below
         // GET: /HelloWorld/Welcome/ 
 
-        public IActionResult Welcome(string name, int id = 1)
+        public IActionResult Welcome(string name, int numTimes = 1)
         {
-            // 
+            //return HtmlEncoder.Default.Encode($"Hello {name} , ID: {numTimes}");
             ViewData["Message"] = "Hello " + name;
-            ViewData["num"];
+            ViewData["NumTimes"] = numTimes;
+            return View();// 
+            //ViewData["Message"] = "Hello " + name;
+            //ViewData["num"];
 
-            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {id}");
+            //return HtmlEncoder.Default.Encode($"Hello {name}, ID: {id}");
         }
     }
 }
